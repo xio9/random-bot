@@ -11,37 +11,31 @@ function start() {
     function corrNumber() {
         if (isNaN(userNumber)) {
             alert('Введи число!');
-        }
-    }
-
-    function end() {
-        if (userNumber == null) {
-            alert('Игра окончена');
+            tryAgain();
         }
     }
 
     function checkNumber() {
-
-        corrNumber();
-        end();
-
-        if (userNumber > num) {
-            alert('Загаданное число меньше');
-            tryAgain();
-        } else if (userNumber < num) {
-            alert('Загаданное число больше');
-            tryAgain();
-        } else if (userNumber = num) {
-            alert('Поздравляю, Вы угадали!!!');
+        if (userNumber === null){
+            alert('Игра окончена');
+        } else {
+            if (userNumber > num) {
+                alert('Загаданное число меньше');
+                tryAgain();
+            } else if (userNumber < num) {
+                alert('Загаданное число больше');
+                tryAgain();
+            } else if (userNumber == num) {
+                alert('Поздравляю, Вы угадали!!!');
+            }
         }
-
     }
 
     function tryAgain() {
         askNumber();
+        corrNumber();;
         checkNumber();
     }
-
     tryAgain();
 }
 start();
